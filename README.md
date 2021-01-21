@@ -8,6 +8,7 @@
 - BGRI: BlackRock Geopolitical Risk Index (refer to Colab notebook)
 - International Country Risk Guide (ICRG) from PRS: Political Risks (until 2016)
 - World Bank Country Classification: country categorization by region / geography, income status, and lending ability
+- Swap yields
 
 ### Macro Factors:
 - MXEF0CX0 Index: MSCI EM Currency Index				

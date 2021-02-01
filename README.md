@@ -24,4 +24,7 @@
 ### Style Factors:
 - Factor series (Size, Low Risk, Value, Momentum): robeco-data-set-factor-returns
 
+### Others:
+- 3-month USD LIBOR Rate: use as risk-free, USD3MTD156N
+
 

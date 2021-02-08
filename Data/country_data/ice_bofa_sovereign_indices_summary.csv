@@ -1,68 +1,78 @@
 ﻿Index BBG Ticker,Full Index Name,Number of Issues,"Sum of Market Value (mm, USD)",Effective Duration
-GDID,ICE BofA US Dollar Indonesia Sovereign Index,48.00,78196.03,9.30
-GDTR,ICE BofA US Dollar Turkey Sovereign Index,32.00,74306.07,6.14
-GDMX,ICE BofA US Dollar Mexico Sovereign Index,26.00,67275.07,11.66
-GDEG,ICE BofA US Dollar Egypt Sovereign Index,22.00,32943.78,6.43
-GDPH,ICE BofA US Dollar Philippines Sovereign Index,20.00,34947.25,9.48
-GDBH,ICE BofA US Dollar Bahrain Sovereign Index,19.00,21849.81,6.01
-GDBR,ICE BofA US Dollar Brazil Sovereign Index,16.00,40827.39,8.32
-GDCO,ICE BofA US Dollar Colombia Sovereign Index,16.00,34084.39,10.70
-GDDO,ICE BofA US Dollar Dominican Republic Sovereign Index,15.00,25494.47,9.66
-GDPA,ICE BofA US Dollar Panama Sovereign Index,15.00,28731.88,11.98
-GDQA,ICE BofA US Dollar Qatar Sovereign Index,15.00,56387.12,11.11
-GDZA,ICE BofA US Dollar South Africa Sovereign Index,14.00,20839.00,8.09
-GDCN,ICE BofA US Dollar China Sovereign Index,13.00,17883.82,6.25
-GDIL,ICE BofA US Dollar Israel Sovereign Index,13.00,23626.31,14.88
-GDGH,ICE BofA US Dollar Ghana Sovereign Index,11.00,11147.37,6.70
-GDPE,ICE BofA US Dollar Peru Sovereign Index,11.00,20340.58,12.29
-GDRU,ICE BofA US Dollar Russia Sovereign Index,11.00,42860.28,9.33
-GDLK,ICE BofA US Dollar Sri Lanka Sovereign Index,11.00,7989.37,3.62
-GDCL,ICE BofA US Dollar Chile Sovereign Index,10.00,13061.13,12.89
-GDSV,ICE BofA US Dollar El Salvador Sovereign Index,10.00,7469.65,7.30
-GDUA,ICE BofA US Dollar Ukraine Sovereign Index,10.00,17677.03,5.14
-GDNG,ICE BofA US Dollar Nigeria Sovereign Index,9.00,11523.68,7.42
-GDPY,ICE BofA US Dollar Paraguay Sovereign Index,9.00,7152.90,10.71
-GDKR,ICE BofA US Dollar South Korea Sovereign Index,9.00,7503.48,8.67
-GDUY,ICE BofA US Dollar Uruguay Sovereign Index,9.00,18337.27,12.50
-GDGT,ICE BofA US Dollar Guatemala Sovereign Index,8.00,6240.31,8.31
-GDRO,ICE BofA US Dollar Romania Sovereign Index,7.00,11449.99,9.10
-GDAR,ICE BofA US Dollar Argentina Sovereign Index,6.00,23471.69,7.21
-GDCR,ICE BofA US Dollar Costa Rica Sovereign Index,6.00,5495.71,7.87
-GDAO,ICE BofA US Dollar Angola Sovereign Index,5.00,8091.07,6.75
-GDBY,ICE BofA US Dollar Belarus Sovereign Index,5.00,3457.92,4.94
-GDJM,ICE BofA US Dollar Jamaica Sovereign Index,5.00,6921.68,9.54
-GDJO,ICE BofA US Dollar Jordan Sovereign Index,5.00,5298.38,7.02
-GDKE,ICE BofA US Dollar Kenya Sovereign Index,5.00,6955.47,5.87
-GDMA,ICE BofA US Dollar Morocco Sovereign Index,5.00,5568.22,9.59
-GDPK,ICE BofA US Dollar Pakistan Sovereign Index,5.00,4697.51,4.03
-GDBS,ICE BofA US Dollar Bahamas Sovereign Index,4.00,2239.43,5.78
-GDHU,ICE BofA US Dollar Hungary Sovereign Index,4.00,8416.88,5.19
-GDKZ,ICE BofA US Dollar Kazakhstan Sovereign Index,4.00,8342.03,8.91
-GDMY,ICE BofA US Dollar Malaysia Sovereign Index,4.00,3555.42,9.12
-GDMN,ICE BofA US Dollar Mongolia Sovereign Index,4.00,3050.37,2.64
-GDPL,ICE BofA US Dollar Poland Sovereign Index,4.00,9542.47,2.48
-GDAZ,ICE BofA US Dollar Azerbaijan Sovereign Index,3.00,2899.28,5.68
-GDEC,ICE BofA US Dollar Ecuador Sovereign Index,3.00,7595.70,8.89
-GDGA,ICE BofA US Dollar Gabon Sovereign Index,3.00,2545.51,4.50
-GDHN,ICE BofA US Dollar Honduras Sovereign Index,3.00,2045.20,4.96
-GDCI,ICE BofA US Dollar Ivory Coast Sovereign Index,3.00,2985.04,5.49
-GDSN,ICE BofA US Dollar Senegal Sovereign Index,3.00,2864.82,8.85
-GDTT,ICE BofA US Dollar Trinidad & Tobago Sovereign Index,3.00,2230.89,5.02
-GDZM,ICE BofA US Dollar Zambia Sovereign Index,3.00,1572.32,2.47
-GDAM,ICE BofA US Dollar Armenia Sovereign Index,2.00,1102.04,5.34
-GDHR,ICE BofA US Dollar Croatia Sovereign Index,2.00,3699.01,2.44
-GDIQ,ICE BofA US Dollar Iraq Sovereign Index,2.00,3241.09,2.71
-GDSI,ICE BofA US Dollar Slovenia Sovereign Index,2.00,1761.54,2.61
-GDDZ,ICE BofA US Dollar Algeria Sovereign Index,1.00,278.06,0.00
-GDAW,ICE BofA US Dollar Aruba Sovereign Index,1.00,265.39,1.53
-GDBB,ICE BofA US Dollar Barbados Sovereign Index,1.00,562.20,6.48
-GDBZ,ICE BofA US Dollar Belize Sovereign Index,1.00,226.40,6.54
-GDGR,ICE BofA US Dollar Greece Sovereign Index,1.00,382.72,0.56
-GDLT,ICE BofA US Dollar Lithuania Sovereign Index,1.00,1592.21,0.98
-GDNA,ICE BofA US Dollar Namibia Sovereign Index,1.00,817.16,4.17
-GDRW,ICE BofA US Dollar Rwanda Sovereign Index,1.00,428.69,2.05
-GDCS,ICE BofA US Dollar Serbia Sovereign Index,1.00,1167.10,8.91
-GDSK,ICE BofA US Dollar Slovakia Sovereign Index,1.00,1589.83,1.26
-GDTH,ICE BofA US Dollar Thailand Sovereign Index,1.00,298.57,0.47
-GDTN,ICE BofA US Dollar Tunisia Sovereign Index,1.00,913.78,3.46
-GDVN,ICE BofA US Dollar Vietnam Sovereign Index,1.00,1134.73,3.49
+GDID,ICE BofA US Dollar Indonesia Sovereign Index,48,78196.03,9.3
+GDTR,ICE BofA US Dollar Turkey Sovereign Index,32,74306.07,6.14
+GDMX,ICE BofA US Dollar Mexico Sovereign Index,26,67275.07,11.66
+GDEG,ICE BofA US Dollar Egypt Sovereign Index,22,32943.78,6.43
+GDPH,ICE BofA US Dollar Philippines Sovereign Index,20,34947.25,9.48
+GDBH,ICE BofA US Dollar Bahrain Sovereign Index,19,21849.81,6.01
+GDBR,ICE BofA US Dollar Brazil Sovereign Index,16,40827.39,8.32
+GDCO,ICE BofA US Dollar Colombia Sovereign Index,16,34084.39,10.7
+GDDO,ICE BofA US Dollar Dominican Republic Sovereign Index,15,25494.47,9.66
+GDPA,ICE BofA US Dollar Panama Sovereign Index,15,28731.88,11.98
+GDQA,ICE BofA US Dollar Qatar Sovereign Index,15,56387.12,11.11
+GDZA,ICE BofA US Dollar South Africa Sovereign Index,14,20839,8.09
+GDCN,ICE BofA US Dollar China Sovereign Index,13,17883.82,6.25
+GDIL,ICE BofA US Dollar Israel Sovereign Index,13,23626.31,14.88
+GDGH,ICE BofA US Dollar Ghana Sovereign Index,11,11147.37,6.7
+GDPE,ICE BofA US Dollar Peru Sovereign Index,11,20340.58,12.29
+GDRU,ICE BofA US Dollar Russia Sovereign Index,11,42860.28,9.33
+GDLK,ICE BofA US Dollar Sri Lanka Sovereign Index,11,7989.37,3.62
+GDCL,ICE BofA US Dollar Chile Sovereign Index,10,13061.13,12.89
+GDSV,ICE BofA US Dollar El Salvador Sovereign Index,10,7469.65,7.3
+GDUA,ICE BofA US Dollar Ukraine Sovereign Index,10,17677.03,5.14
+GDNG,ICE BofA US Dollar Nigeria Sovereign Index,9,11523.68,7.42
+GDPY,ICE BofA US Dollar Paraguay Sovereign Index,9,7152.9,10.71
+GDKR,ICE BofA US Dollar South Korea Sovereign Index,9,7503.48,8.67
+GDUY,ICE BofA US Dollar Uruguay Sovereign Index,9,18337.27,12.5
+GDGT,ICE BofA US Dollar Guatemala Sovereign Index,8,6240.31,8.31
+GDRO,ICE BofA US Dollar Romania Sovereign Index,7,11449.99,9.1
+GDAR,ICE BofA US Dollar Argentina Sovereign Index,6,23471.69,7.21
+GDCR,ICE BofA US Dollar Costa Rica Sovereign Index,6,5495.71,7.87
+GDAO,ICE BofA US Dollar Angola Sovereign Index,5,8091.07,6.75
+GDBY,ICE BofA US Dollar Belarus Sovereign Index,5,3457.92,4.94
+GDJM,ICE BofA US Dollar Jamaica Sovereign Index,5,6921.68,9.54
+GDJO,ICE BofA US Dollar Jordan Sovereign Index,5,5298.38,7.02
+GDKE,ICE BofA US Dollar Kenya Sovereign Index,5,6955.47,5.87
+GDMA,ICE BofA US Dollar Morocco Sovereign Index,5,5568.22,9.59
+GDPK,ICE BofA US Dollar Pakistan Sovereign Index,5,4697.51,4.03
+GDBS,ICE BofA US Dollar Bahamas Sovereign Index,4,2239.43,5.78
+GDHU,ICE BofA US Dollar Hungary Sovereign Index,4,8416.88,5.19
+GDKZ,ICE BofA US Dollar Kazakhstan Sovereign Index,4,8342.03,8.91
+GDMY,ICE BofA US Dollar Malaysia Sovereign Index,4,3555.42,9.12
+GDMN,ICE BofA US Dollar Mongolia Sovereign Index,4,3050.37,2.64
+GDPL,ICE BofA US Dollar Poland Sovereign Index,4,9542.47,2.48
+GDAZ,ICE BofA US Dollar Azerbaijan Sovereign Index,3,2899.28,5.68
+GDEC,ICE BofA US Dollar Ecuador Sovereign Index,3,7595.7,8.89
+GDGA,ICE BofA US Dollar Gabon Sovereign Index,3,2545.51,4.5
+GDHN,ICE BofA US Dollar Honduras Sovereign Index,3,2045.2,4.96
+GDCI,ICE BofA US Dollar Ivory Coast Sovereign Index,3,2985.04,5.49
+GDSN,ICE BofA US Dollar Senegal Sovereign Index,3,2864.82,8.85
+GDTT,ICE BofA US Dollar Trinidad & Tobago Sovereign Index,3,2230.89,5.02
+GDZM,ICE BofA US Dollar Zambia Sovereign Index,3,1572.32,2.47
+GDAM,ICE BofA US Dollar Armenia Sovereign Index,2,1102.04,5.34
+GDHR,ICE BofA US Dollar Croatia Sovereign Index,2,3699.01,2.44
+GDIQ,ICE BofA US Dollar Iraq Sovereign Index,2,3241.09,2.71
+GDSI,ICE BofA US Dollar Slovenia Sovereign Index,2,1761.54,2.61
+GDDZ,ICE BofA US Dollar Algeria Sovereign Index,1,278.06,0
+GDAW,ICE BofA US Dollar Aruba Sovereign Index,1,265.39,1.53
+GDBB,ICE BofA US Dollar Barbados Sovereign Index,1,562.2,6.48
+GDBZ,ICE BofA US Dollar Belize Sovereign Index,1,226.4,6.54
+GDGR,ICE BofA US Dollar Greece Sovereign Index,1,382.72,0.56
+GDLT,ICE BofA US Dollar Lithuania Sovereign Index,1,1592.21,0.98
+GDNA,ICE BofA US Dollar Namibia Sovereign Index,1,817.16,4.17
+GDRW,ICE BofA US Dollar Rwanda Sovereign Index,1,428.69,2.05
+GDCS,ICE BofA US Dollar Serbia Sovereign Index,1,1167.1,8.91
+GDSK,ICE BofA US Dollar Slovakia Sovereign Index,1,1589.83,1.26
+GDTH,ICE BofA US Dollar Thailand Sovereign Index,1,298.57,0.47
+GDTN,ICE BofA US Dollar Tunisia Sovereign Index,1,913.78,3.46
+GDVN,ICE BofA US Dollar Vietnam Sovereign Index,1,1134.73,3.49
+GDBG,ICE BofA US Dollar Bulgaria Sovereign Index,0,0,0
+GDFJ,ICE BofA US Dollar Fiji Sovereign Index,0,0,0
+GDGE,ICE BofA US Dollar Georgia Sovereign Index,0,0,0
+GDIS,ICE BofA US Dollar Iceland Sovereign Index,0,0,0
+GDLV,ICE BofA US Dollar Latvia Sovereign Index,0,0,0
+GDLB,ICE BofA US Dollar Lebanon Sovereign Index,0,0,0
+GDMZ,ICE BofA US Dollar Mozambique Sovereign Index,0,0,0
+GDES,ICE BofA US Dollar Spain Sovereign Index,0,0,0
+GDVE,ICE BofA US Dollar Venezuela Sovereign Index,0,0,0
+GDBO,ICE BofA US Dollar Bolivia Sovereign Index,0,0,0

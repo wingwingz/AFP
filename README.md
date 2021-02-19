@@ -1,6 +1,7 @@
 # AFP
 ---
 
+2015/9/27 - 2021/1/31
 
 ## Data 
 
@@ -10,6 +11,8 @@
 - World Bank Country Classification: country categorization by region / geography, income status, and lending ability
 - Swap yields (daily)
 - Equity Indices Returns from WRDS (daily)
+- Country Market Cap % (annually)
+- Aggregate EM Country Indices: MSCI EM Index, iShares EM ETF
 
 ### Macro Factors:
 - MXEF0CX0 Index: MSCI EM Currency Index				

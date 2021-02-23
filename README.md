@@ -23,6 +23,7 @@
 - VIX
 - CPI (annual or monthly depends on country)
 - 10yr and tbill rates (monthly for most countries)
+- World Data: GDP (Quarterly % Change), P/E ratios
 
 ### Style Factors:
 - Factor series (Size, Low Risk, Value, Momentum): robeco-data-set-factor-returns

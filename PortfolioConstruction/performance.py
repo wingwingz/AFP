@@ -102,4 +102,4 @@ def plot_perf(perf, perf_bm, label, title, benchmark_label = 'Market-RF'):
     ax.plot(perf_bm, linewidth=1, linestyle='--', c='black', label=benchmark_label)
     ax.set_ylabel('Cumulative Returns')
     ax.set_title(title)
-    ax.legend(loc='upper right', bbox_to_anchor=(0, 0.5))
+    ax.legend(loc='best')

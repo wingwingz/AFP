@@ -1,4 +1,8 @@
-class VolTargetRebalance:
+import numpy as np
+import pandas as pd
+from scipy.optimize import minimize
+
+class RiskParity:
     
     def __init__(self, 
                  aum, 
@@ -7,21 +11,14 @@ class VolTargetRebalance:
                  time, # daily return:252, weekly return:52 ...
                  target_vol, # float, in percentage, usually 10 - 15
                  burn, # number of observations to drop to smooth out impact of initial vol estimation
-                 barrier=1.5, # risk control - when to switch to short vol
-                 lam_short=0.98, # lambda for EWMA portfolio vol / correlation calculation
-                 lam_long=0.995, # lambda for EWMA vol weight rebalance calculation
-                 leverage_cap=1.5# float, only in effect for vol target funds i.e. nasset = 1 for naive rebalance
                 ):
         self.aum = aum
         self.asset_names = asset_names
         self.returns = returns
         self.time = time
         self.target_vol = target_vol
-        self.leverage_cap = leverage_cap
-        self.lam_short = lam_short
-        self.lam_long = lam_long
         self.burn = burn
-        self.barrier = barrier
+
         
         self.nassets = len(asset_names)
         self.nt = len(returns) - burn
@@ -29,30 +26,6 @@ class VolTargetRebalance:
             self.r = returns.values.reshape(-1, 1)
         else:
             self.r = returns.values
-
-        vols = np.empty(self.r.shape)
-        for i in range(self.nassets):
-            vols[:,i] = self.calc_EWMA_vol(self.r[:,i], lam_long, dataframe=False, verbose=False)
-        self.vols = vols
-        
-    def calc_EWMA_vol(self, returns, lam, dataframe=True, verbose=True):
-        r_sq = returns ** 2
-        if dataframe:
-            sigma_sq = pd.Series(index=r_sq.index, dtype='float64')
-        else:
-            sigma_sq = np.empty(len(returns))
-        sigma_sq[0] =r_sq[0]
-        for i in range(1, len(r_sq)):
-            sigma_sq[i] = (1 - lam) * r_sq[i] + lam * sigma_sq[i - 1]
-        sigma = np.sqrt(sigma_sq) * np.sqrt(self.time) * 100
-        if verbose:
-            print("half-life:", -np.log(2)/np.log(lam))
-            print("avg annual volatility:", sigma.mean())
-        return sigma
-
-        
-    def get_weights(self):
-        raise NotImplementedError
         
     def get_flow(self, threshold_small=0.01, threshold_big=0.2):
         target_weights = self.get_weights()
@@ -98,32 +71,6 @@ class VolTargetRebalance:
  
         return df_trade, df_trade_pct, df_weights, df_returns
         
-class NaiveRebalance(VolTargetRebalance):
-    
-    def get_weights(self):
-        weights = self.target_vol / self.nassets / self.vols[self.burn:]
-        weights = np.atleast_2d(weights)
-
-        realized_vol = np.empty(self.nt)
-        ratio = np.empty(self.nt)
-        for i in range(self.nt):
-            portfolio_returns = self.r[:self.burn + i + 1] @ weights[i, :]
-            short_vol = self.calc_EWMA_vol(portfolio_returns, self.lam_short, dataframe=False, verbose=False)[-1]
-            long_vol = self.calc_EWMA_vol(portfolio_returns, self.lam_long, dataframe=False, verbose=False)[-1]
-            ratio[i] = short_vol / long_vol
-            realized_vol[i] = long_vol if ratio[i] < self.barrier else short_vol
-
-        plt.plot(self.returns[self.burn:].index, ratio, label=r'$\lambda^s$={}, $\lambda^l$={}'.format(self.lam_short, self.lam_long))
-        plt.legend()                             
-        plt.title('Ratio between EWMA Portfolio Vol with $\lambda$ = {} vs EWMA Portfolio Vol with $\lambda$ = {}'.format(self.lam_short, self.lam_long))
-        
-        leverage = self.target_vol / realized_vol
-        weights_rescaled = np.multiply(weights, leverage.reshape(-1, 1))
-        if self.nassets == 1:
-            weights_rescaled[weights_rescaled > self.leverage_cap] = self.leverage_cap
-        return weights_rescaled
-    
-class HistCorrRebalance(VolTargetRebalance):
     
     def _get_portfolio_risk(self, weights, cov):
         weights = np.matrix(weights)
@@ -153,6 +100,7 @@ class HistCorrRebalance(VolTargetRebalance):
 
     def get_weights(self):
         weights = np.empty((self.nt, self.nassets))
+        eq_weights = [1 / self.nassets] * self.nassets
         for i in range(self.nt):
-            weights[i,:] = self._get_risk_parity_weights(self.returns[i:self.burn+i].cov().values * self.time, [0.25,0.25,0.25,0.25], [0.25,0.25,0.25,0.25])
+            weights[i,:] = self._get_risk_parity_weights(self.returns[i:self.burn+i].cov().values * self.time, eq_weights, eq_weights)
         return weights

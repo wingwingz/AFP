@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import statsmodels.api as sm
 
 # Calculate cumulative returns
 def calc_cum_returns(df, log_ret = True):
@@ -18,19 +19,83 @@ def calc_cum_returns(df, log_ret = True):
     df_.columns = df_.columns.map(lambda x : x+'_cum_ret')
     return df_
 
-# Generate performance assessment statistics
-def calc_performance(rets_series, log_ret = True, time = 52):
+# # Generate performance assessment statistics
+# def calc_performance(rets_series, log_ret = True, time = 52):
+#     '''
+#     Generates performance metrics for portfolio or market
+#     + Input: return series (in log returns)
+#     + Output: mean annualized returns, SR, volatility
+#     '''
+#     if log_ret == False:
+#         rets_series = np.log(rets_series + 1)
+    
+#     perf_df = pd.DataFrame(rets_series)
+#     perf_df.columns = ['returns']
+    
+#     # Compute mean return, annualized
+#     def calc_mean_return(df, column):
+#         mean_log_return = np.mean(df[column]) * time
+#         # Convert back to simple returns
+#         mean_return_annualized = np.exp(mean_log_return) - 1
+#         return mean_return_annualized
+    
+#     # Compute volatility, annualized
+#     def calc_vol(df, column):
+#         std_annualized = df[column].std() * np.sqrt(time)
+#         return std_annualized
+    
+#     # Compute SR, annualized
+#     def calc_sharpe_ratio(df, column):
+#         mean_ret = calc_mean_return(df, column)
+#         std_ = calc_vol(df, column)
+#         sr_annualized = mean_ret/std_
+#         return sr_annualized
+    
+#     # Compute skewness and kurtosis
+#     def calc_skewness_kurtosis(df, column):
+#         skewness = df[column].skew()
+#         kurtosis = df[column].kurtosis()
+#         return skewness, kurtosis
+
+#     # Compute max drawdown 
+#     def calc_max_drawdown(df, column):
+#         # Calculate using simple returns
+#         returns = np.exp(df[column])-1
+#         cum_returns = (1 + returns).cumprod()
+#         drawdown = 1 - cum_returns.div(cum_returns.cummax())
+#         max_drawdown = np.max(drawdown.expanding().max())
+#         max_drawdown_date = (drawdown.expanding().max().idxmax()).strftime('%Y-%m-%d')
+#         return max_drawdown, max_drawdown_date
+    
+#     # Compute all metrics for portfolio
+#     mean_return_ann = calc_mean_return(perf_df, 'returns')
+#     std_ann = calc_vol(perf_df, 'returns')
+#     sr_ann = calc_sharpe_ratio(perf_df, 'returns')
+#     skewness, kurtosis = calc_skewness_kurtosis(perf_df, 'returns')
+#     max_drawdown, max_drawdown_date = calc_max_drawdown(perf_df, 'returns')
+    
+#     all_ = [round(mean_return_ann*100,2), round(std_ann*100,2), round(sr_ann, 2), \
+#             round(skewness, 2), round(kurtosis, 2), round(max_drawdown*100, 2), max_drawdown_date]
+    
+#     return all_
+
+def calc_performance(rets_series, log_ret = True, time = 52, mkt=None):
     '''
     Generates performance metrics for portfolio or market
-    + Input: return series (in log returns)
+    + Input: return series (in log returns); mkt or benchmarket portfolio (in log returns)
     + Output: mean annualized returns, SR, volatility
     '''
     if log_ret == False:
         rets_series = np.log(rets_series + 1)
-    
+        if mkt is not None:
+            mkt = np.log(mkt + 1)
     perf_df = pd.DataFrame(rets_series)
     perf_df.columns = ['returns']
     
+    if mkt is not None:
+        mkt_df = pd.DataFrame(mkt)
+        mkt_df.columns = ['mkt']
+        
     # Compute mean return, annualized
     def calc_mean_return(df, column):
         mean_log_return = np.mean(df[column]) * time
@@ -56,8 +121,8 @@ def calc_performance(rets_series, log_ret = True, time = 52):
         skewness = df[column].skew()
         kurtosis = df[column].kurtosis()
         return skewness, kurtosis
-
-    # Compute max drawdown 
+    
+    # Compute max drawdown
     def calc_max_drawdown(df, column):
         # Calculate using simple returns
         returns = np.exp(df[column])-1
@@ -67,16 +132,27 @@ def calc_performance(rets_series, log_ret = True, time = 52):
         max_drawdown_date = (drawdown.expanding().max().idxmax()).strftime('%Y-%m-%d')
         return max_drawdown, max_drawdown_date
     
+    # Compute strategy's beta exposure to market
+    def calc_mkt_beta(ret, mkt):
+        df = ret.join(mkt, how='inner')
+        res = sm.OLS(df['returns'], sm.add_constant(df['mkt'])).fit()
+        beta = res.params[1]
+        corr = df.corr().iloc[0, 1]
+        return np.round(beta, 3), np.round(corr, 3)
+    
     # Compute all metrics for portfolio
     mean_return_ann = calc_mean_return(perf_df, 'returns')
     std_ann = calc_vol(perf_df, 'returns')
     sr_ann = calc_sharpe_ratio(perf_df, 'returns')
     skewness, kurtosis = calc_skewness_kurtosis(perf_df, 'returns')
     max_drawdown, max_drawdown_date = calc_max_drawdown(perf_df, 'returns')
-    
     all_ = [round(mean_return_ann*100,2), round(std_ann*100,2), round(sr_ann, 2), \
             round(skewness, 2), round(kurtosis, 2), round(max_drawdown*100, 2), max_drawdown_date]
     
+    if mkt is not None:
+        beta = calc_mkt_beta(perf_df, mkt_df)
+        all_ = np.r_[all_, beta]
+        
     return all_
 
 def plot_corr(factor_returns_df, title):
@@ -99,6 +175,7 @@ def plot_perf(perf, perf_bm, label, title, benchmark_label = 'Market-RF'):
         label = [label]
     for i in range(len(perf)):
         ax.plot(perf[i], linewidth=1, label=label[i])
+    #if perf_bm != []:
     ax.plot(perf_bm, linewidth=1, linestyle='--', c='black', label=benchmark_label)
     ax.set_ylabel('Cumulative Returns')
     ax.set_title(title)
